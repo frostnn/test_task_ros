@@ -1,10 +1,12 @@
-import './App.module.scss';
-import PeoplePage from '../PeoplePage';
+import styles from './App.module.scss';
+import Wrapper from '../Wrapper';
+import Title from '../../components/Title';
 
 const App = () => {
   return (
-    <div className="container">
-      <PeoplePage />
+    <div className={styles.container}>
+      <Title />
+      <Wrapper />
     </div>
   );
 };

@@ -1,0 +1,59 @@
+.cards {
+  background: #fff;
+  padding: 20px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0px 20px 20px 0px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 1px cadetblue, 2px 2px cadetblue, 3px 3px cadetblue,
+      4px 4px cadetblue, 5px 5px cadetblue, 6px 6px cadetblue, 7px 7px cadetblue;
+    transform: translateX(-7px);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-top: 149px solid cadetblue;
+    border-right: 225px solid transparent;
+    z-index: 5;
+  }
+  .cards_close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 999;
+    background: transparent;
+    border: none;
+  }
+  .cards_item {
+    .cards_item_avatar {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      img {
+        border-radius: 50%;
+      }
+    }
+    .cards_item_name {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+    .cards_item_email {
+      a {
+        color: #5a5a5a;
+        text-decoration: none;
+      }
+    }
+  }
+}

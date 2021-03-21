@@ -1,4 +1,7 @@
-.wrapper {
-  max-width: 1120px;
+.cards_block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 899px;
   margin: 0 auto;
 }
