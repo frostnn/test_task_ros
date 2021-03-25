@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { withErrorApi } from '../../hoc/withErrorApi';
 import SearchPanel from '../../containers/SearchPanel';
 import Loader from '../../components/Loader/Loader';
+import { Context } from '../../context/context';
 
 const PeoplePage = ({ setErrorApi }) => {
   const [inputSearchValue, setInputSearchValue] = useState('');
@@ -25,7 +26,6 @@ const PeoplePage = ({ setErrorApi }) => {
   };
 
   const sortName = () => {
-    console.log(sort);
     const copyState = [...state];
     if (setSort(!sort)) {
       copyState.sort((a, b) => {
@@ -45,11 +45,8 @@ const PeoplePage = ({ setErrorApi }) => {
   }, []);
 
   return (
-    <>
-      <SearchPanel
-        setInputSearchValue={setInputSearchValue}
-        sortName={sortName}
-      />
+    <Context.Provider value={{ sortName, setInputSearchValue }}>
+      <SearchPanel />
       <div className={styles.cards_block}>
         {isLoading ? (
           <Loader />
@@ -57,7 +54,7 @@ const PeoplePage = ({ setErrorApi }) => {
           state && <Cards state={state} inputSearchValue={inputSearchValue} />
         )}
       </div>
-    </>
+    </Context.Provider>
   );
 };
 
